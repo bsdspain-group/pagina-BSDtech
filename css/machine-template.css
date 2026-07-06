@@ -1,0 +1,365 @@
+/* =========================================================
+   BSDtech — plantilla dinámica de ficha de máquina
+   Bloques reutilizables, pensados como "flexible content"
+   de WordPress (cada .machine-* es un tipo de bloque repetible).
+   Depende de las variables definidas en style.css (cargar antes).
+   ========================================================= */
+
+/* ---------- Hero de máquina ---------- */
+
+.machine-hero {
+  background: var(--color-dark);
+  color: #fff;
+  padding: 96px 0 72px;
+}
+
+.machine-hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.machine-hero .container > * {
+  min-width: 0;
+}
+
+.machine-hero .tag {
+  background: rgba(255, 90, 31, 0.16);
+  color: #ffb08a;
+}
+
+.machine-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff;
+}
+
+.machine-hero .lead {
+  color: #c7c9cf;
+  font-size: 1.05rem;
+  max-width: 480px;
+}
+
+/* ---------- Placeholder de imagen/foto dinámica ---------- */
+/* Sustituir por <img> o el campo de imagen de WordPress (ACF/featured image) */
+
+.machine-placeholder-img {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-surface),
+    var(--color-surface) 12px,
+    #eceef1 12px,
+    #eceef1 24px
+  );
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  padding: 24px;
+}
+
+.machine-hero .machine-placeholder-img {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 12px,
+    rgba(255, 255, 255, 0.08) 12px,
+    rgba(255, 255, 255, 0.08) 24px
+  );
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #9a9ca3;
+  min-height: 340px;
+}
+
+/* ---------- Bloque de característica: título + texto + media ---------- */
+
+.machine-feature {
+  padding: 64px 0;
+}
+
+.machine-feature--dark {
+  background: var(--color-dark);
+}
+
+.machine-feature--dark h2,
+.machine-feature--dark p:not(.machine-stat span) {
+  color: #fff;
+}
+
+.machine-feature--dark p {
+  color: #c7c9cf;
+}
+
+.machine-feature-header {
+  max-width: 640px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.machine-feature-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.machine-feature-media .machine-placeholder-img {
+  min-height: 380px;
+}
+
+/* ---------- Fila de cifras grandes ---------- */
+
+.machine-stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  flex-wrap: wrap;
+  margin: 8px 0 32px;
+}
+
+.machine-stat {
+  text-align: center;
+}
+
+.machine-stat strong {
+  display: block;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.machine-stat span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.machine-feature--dark .machine-stat span {
+  color: #9a9ca3;
+}
+
+/* ---------- Bloque partido: texto | imagen ---------- */
+
+.machine-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.machine-split > * {
+  min-width: 0;
+}
+
+.machine-split--reverse .machine-split-media {
+  order: 2;
+}
+
+.machine-split-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.machine-split-stats > * {
+  min-width: 0;
+}
+
+.machine-split-stats .machine-stat strong {
+  font-size: 1.9rem;
+}
+
+/* ---------- Imagen con cifra superpuesta ---------- */
+
+.machine-overlay {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.machine-overlay .machine-placeholder-img {
+  min-height: 340px;
+  border-radius: 0;
+  border: none;
+}
+
+.machine-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(20, 22, 26, 0.75), rgba(20, 22, 26, 0) 55%);
+  pointer-events: none;
+}
+
+.machine-overlay-stat {
+  position: absolute;
+  left: 40px;
+  bottom: 32px;
+  color: #fff;
+  z-index: 1;
+}
+
+.machine-overlay-stat strong {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+}
+
+.machine-overlay-stat span {
+  font-size: 1rem;
+  color: #e5e6e8;
+}
+
+/* ---------- Comparación lado a lado ---------- */
+
+.machine-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.machine-compare figure {
+  margin: 0;
+}
+
+.machine-compare figcaption {
+  text-align: center;
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.machine-compare figcaption.is-bad {
+  color: #d1453b;
+}
+
+.machine-compare figcaption.is-good {
+  color: #1f9254;
+}
+
+/* ---------- Garantía / confianza ---------- */
+
+.machine-warranty {
+  background: var(--color-dark);
+  color: #fff;
+  padding: 64px 0;
+  text-align: center;
+}
+
+.machine-warranty h2 {
+  color: #fff;
+}
+
+.machine-warranty-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 32px 0;
+}
+
+.machine-warranty-icons div {
+  max-width: 150px;
+  text-align: center;
+}
+
+.machine-warranty-icons svg {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 10px;
+  color: var(--color-primary);
+}
+
+.machine-warranty-icons p {
+  color: #c7c9cf;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.machine-warranty-visual .machine-placeholder-img {
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 220px;
+}
+
+/* ---------- Galería ---------- */
+
+.machine-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.machine-gallery-grid .machine-placeholder-img {
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+}
+
+/* ---------- CTA / formulario de cotización ---------- */
+
+.machine-cta-form {
+  background: var(--color-surface);
+  padding: 64px 0;
+}
+
+.machine-cta-form .card {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.machine-cta-form .contact-form {
+  text-align: left;
+  margin-top: 24px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .machine-hero .container,
+  .machine-split,
+  .machine-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .machine-split--reverse .machine-split-media {
+    order: 0;
+  }
+
+  .machine-stats-row {
+    gap: 32px;
+  }
+
+  .machine-split-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .machine-overlay-stat {
+    left: 24px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .machine-split-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .machine-stat strong {
+    font-size: 2rem;
+  }
+}
