@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto — BSDtech</title>
-  <meta name="description" content="Contacta con BSDtech para solicitar un presupuesto o resolver dudas sobre nuestros equipos de tampografía para calzado, metalurgia y plástico." />
+  <title>Tampografía — BSDtech</title>
+  <meta name="description" content="Qué es la tampografía: máquinas, tampones, clichés y tintas para marcar prácticamente cualquier superficie. Tecnología y equipos de BSDtech." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -31,62 +31,92 @@
   </header>
 
   <main>
+
     <section class="page-header">
       <div class="container">
-        <h1>Hablemos de tu proyecto</h1>
-        <p class="lead">Cuéntanos qué necesitas y un especialista de BSDtech te contactará en menos de 24 horas laborables.</p>
+        <span class="tag">Tecnología</span>
+        <h1>Qué es la tampografía</h1>
+        <p class="lead">Una técnica de impresión indirecta que permite transferir tinta a superficies curvas, cóncavas o irregulares con un tampón de silicona.</p>
+        <a class="btn btn-primary" href="contacto.html?sector=tampografia">Solicitar consulta &gt;</a>
       </div>
     </section>
 
     <section>
-      <div class="container contact-layout">
-        <div>
-          <form class="contact-form" id="contact-form" novalidate>
-            <div class="form-field">
-              <label for="nombre">Nombre completo *</label>
-              <input type="text" id="nombre" name="nombre" required />
-            </div>
-            <div class="form-field">
-              <label for="empresa">Empresa</label>
-              <input type="text" id="empresa" name="empresa" />
-            </div>
-            <div class="form-field">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div class="form-field">
-              <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" />
-            </div>
-            <div class="form-field">
-              <label for="interes">Sector</label>
-              <select id="interes" name="interes">
-                <option value="calzado-marroquineria">Calzado y Marroquinería</option>
-                <option value="metalurgia">Metalurgia</option>
-                <option value="plastico">Plástico</option>
-                <option value="tampografia">Tampografía (información general)</option>
-                <option value="otro">Otro / no lo sé todavía</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="mensaje">Mensaje *</label>
-              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar consulta</button>
-          </form>
-          <div class="contact-confirmation" id="contact-confirmation" hidden></div>
-        </div>
-        <div class="contact-info">
-          <h2>Otras formas de contactar</h2>
+      <div class="container sector-intro">
+        <div class="sector-intro-text">
+          <h2>Cómo funciona</h2>
+          <p>La tampografía transfiere tinta desde un cliché grabado a la superficie de una pieza mediante un tampón de silicona, adaptándose a formas que otras técnicas de impresión no pueden alcanzar.</p>
           <ul>
-            <li><strong>Email</strong><span>info@bsdtech.es</span></li>
-            <li><strong>Teléfono</strong><span>+34 900 000 000</span></li>
-            <li><strong>Oficina</strong><span>Madrid, España</span></li>
-            <li><strong>Horario de atención</strong><span>Lunes a viernes, 9:00 a 18:00</span></li>
+            <li>El cliché se graba con el diseño a imprimir</li>
+            <li>La tinta se deposita sobre el cliché y se recoge con el tampón de silicona</li>
+            <li>El tampón transfiere la tinta a la pieza, adaptándose a su forma</li>
           </ul>
+        </div>
+        <div class="sector-intro-visual">
+          <svg class="sector-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 10 H44 V24 C44 30 39 34 32 34 C25 34 20 30 20 24 Z" stroke="currentColor" stroke-width="3"/>
+            <rect x="16" y="42" width="32" height="12" rx="2" stroke="currentColor" stroke-width="3"/>
+            <path d="M32 34 V42" stroke="currentColor" stroke-width="3"/>
+          </svg>
         </div>
       </div>
     </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Equipos y consumibles</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Máquinas de tampografía</h3>
+            <p>Modelos manuales, semiautomáticos y automáticos según el volumen de producción.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Tampones de silicona</h3>
+            <p>Distintas durezas y formas para adaptarse a cada superficie a imprimir.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Clichés</h3>
+            <p>De fotopolímero o de acero, según la tirada y la durabilidad requerida.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Tintas</h3>
+            <p>Formulaciones para metal, plástico, cuero, cristal y cerámica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Sectores de aplicación</h2>
+        <p class="section-lead">La tampografía se adapta a prácticamente cualquier industria. Estos son los sectores en los que BSDtech tiene mayor experiencia.</p>
+        <div class="sector-grid">
+          <a class="sector-card" href="calzado-marroquineria.html">
+            <h3>Calzado y Marroquinería</h3>
+            <p>Marcaje de logotipos y personalización sobre cuero y sintéticos.</p>
+          </a>
+          <a class="sector-card" href="metalurgia.html">
+            <h3>Metalurgia</h3>
+            <p>Marcaje de trazabilidad y referencias resistente en piezas metálicas.</p>
+          </a>
+          <a class="sector-card" href="plastico.html">
+            <h3>Plástico</h3>
+            <p>Tintas compatibles con los principales polímeros para packaging y piezas técnicas.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <h2>¿Quieres saber si la tampografía es la técnica adecuada para tu producto?</h2>
+          <p>Cuéntanos qué material y forma tiene tu pieza y te asesoramos sin compromiso.</p>
+          <a class="btn btn-primary" href="contacto.html?sector=tampografia">Hablar con un especialista &gt;</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -146,8 +176,8 @@
       </div>
       <div class="chat-quick-replies">
         <button class="chat-quick-reply">Precio</button>
-        <button class="chat-quick-reply">Calzado</button>
-        <button class="chat-quick-reply">Metalurgia</button>
+        <button class="chat-quick-reply">Cómo funciona</button>
+        <button class="chat-quick-reply">Contacto</button>
       </div>
       <form class="chat-form">
         <input class="chat-input" type="text" placeholder="Escribe tu mensaje..." aria-label="Mensaje" />

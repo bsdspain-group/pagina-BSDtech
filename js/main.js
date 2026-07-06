@@ -1,4 +1,4 @@
-/* Funcionalidad compartida: navegación, chat widget, año de footer */
+/* Funcionalidad compartida: navegación, chat widget, contador, año de footer */
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFooterYear();
   initChatWidget();
   initConsultaForm();
+  initCounters();
 });
 
 function initMobileNav() {
@@ -40,38 +41,54 @@ function initFooterYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
+function initCounters() {
+  document.querySelectorAll("[data-counter]").forEach((el) => {
+    const target = parseInt(el.dataset.counter, 10);
+    let current = 0;
+    const step = Math.max(1, Math.round(target / 40));
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = current;
+    }, 25);
+  });
+}
+
 /* ---------- Chat widget ---------- */
 
 const CHAT_RESPONSES = [
   {
     keywords: ["precio", "coste", "cuanto", "cuánto", "presupuesto"],
     reply:
-      "El precio depende del modelo y la configuración. Déjanos tu email en el formulario de contacto y te enviamos un presupuesto personalizado.",
+      "El precio depende del equipo y los consumibles necesarios. Déjanos tu email en el formulario de contacto y te enviamos un presupuesto personalizado.",
   },
   {
-    keywords: ["tubo"],
+    keywords: ["calzado", "marroquineria", "marroquinería", "cuero", "piel"],
     reply:
-      "Para corte de tubo tenemos la gama BT Tube, con capacidad desde Ø 165 mm hasta Ø 220 mm. Puedes verla en Productos > Corte de tubos.",
+      "Para calzado y marroquinería trabajamos con tampografía sobre cuero y sintéticos, ideal para logos, personalización y detalles decorativos. Más info en la sección Calzado y Marroquinería.",
   },
   {
-    keywords: ["chapa"],
+    keywords: ["metal", "metalurgia", "metalico", "metálico"],
     reply:
-      "Para corte de chapa recomendamos la gama BT Cut, disponible desde 1 kW hasta 12 kW según el grosor a cortar.",
+      "En metalurgia ofrecemos tampografía para marcaje e identificación de piezas metálicas, con tintas de alta resistencia. Puedes verlo en la sección Metalurgia.",
   },
   {
-    keywords: ["soldadura", "soldar"],
+    keywords: ["plastico", "plástico", "inyeccion", "inyección"],
     reply:
-      "Nuestra gama BT Weld Pro incluye soldadura láser portátil con autoenfriamiento, sin necesidad de chiller externo.",
+      "Para plástico contamos con soluciones de tampografía sobre piezas inyectadas, envases y artículos promocionales. Consulta la sección Plástico.",
   },
   {
-    keywords: ["automatizacion", "automatización", "robot", "automatico", "automático"],
+    keywords: ["tampografia", "tampografía", "tampon", "tampón", "cliché", "cliche"],
     reply:
-      "Contamos con células robotizadas (BT AutoCell) y torres de almacenamiento automático (BT Tower Storage) para producción desatendida.",
+      "La tampografía es nuestra especialidad: máquinas, tampones, clichés y tintas para marcar prácticamente cualquier superficie. Tienes toda la info en la sección Tampografía.",
   },
   {
     keywords: ["instalacion", "instalación", "entrega", "plazo"],
     reply:
-      "Los plazos de instalación dependen del modelo, habitualmente entre 48 horas y 3 semanas. Indícanoslo en el formulario de contacto para darte una fecha exacta.",
+      "Los plazos de instalación y puesta en marcha dependen del equipo. Indícanoslo en el formulario de contacto para darte una fecha exacta.",
   },
   {
     keywords: ["contacto", "llamar", "telefono", "teléfono", "email", "correo"],
@@ -80,7 +97,7 @@ const CHAT_RESPONSES = [
   },
   {
     keywords: ["hola", "buenas", "hey"],
-    reply: "¡Hola! Soy el asistente de BSDtech. Cuéntame qué tipo de máquina estás buscando y te ayudo a encontrarla.",
+    reply: "¡Hola! Soy el asistente de BSDtech. Cuéntame en qué sector trabajas (calzado, metalurgia, plástico...) y te ayudo a encontrar la solución adecuada.",
   },
 ];
 
@@ -158,11 +175,13 @@ function initConsultaForm() {
   const confirmation = document.getElementById("contact-confirmation");
 
   const params = new URLSearchParams(window.location.search);
-  const producto = params.get("producto");
-  if (producto) {
+  const sector = params.get("sector");
+  if (sector) {
     const mensaje = form.querySelector("[name='mensaje']");
+    const interes = form.querySelector("[name='interes']");
+    if (interes) interes.value = sector;
     if (mensaje) {
-      mensaje.value = `Estoy interesado/a en el modelo ${producto}. Me gustaría recibir más información y un presupuesto.`;
+      mensaje.value = `Estoy interesado/a en soluciones de tampografía para el sector ${sector}. Me gustaría recibir más información y un presupuesto.`;
     }
   }
 
