@@ -1,6 +1,8 @@
 # BSDtech — Short Homepage ScrollCinema · Architecture Review
 
 **Status:** `BSDTECH_SHORT_SCROLLCINEMA · ARCHITECTURE_REVIEW_PENDING`
+
+> **Superseded in part by [`ARCHITECTURE_V2.md`](ARCHITECTURE_V2.md)**. This file stays as the audit record: asset inventory (A) and archive manifest (B).
 **Date:** 2026-09-24
 **Scope source:** "NEW HOMEPAGE SCROLLCINEMA MASTER SCOPE — SHORT / DYNAMIC / SALES-FOCUSED"
 **Nothing in this review was generated, coded, deployed or paid for.** Higgsfield was only *read*: generation history, uploads, prices and balance.
