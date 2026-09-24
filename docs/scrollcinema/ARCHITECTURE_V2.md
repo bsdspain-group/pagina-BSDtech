@@ -2,6 +2,7 @@
 
 **Status:** `BSDTECH_SHORT_SCROLLCINEMA · ARCHITECTURE_V2_PENDING_APPROVAL`
 **Date:** 2026-09-24
+**Amended by:** [`ARCHITECTURE_V2_1.md`](ARCHITECTURE_V2_1.md) (replaces §2, §3, §7, §9, §10).
 **Supersedes:** `ARCHITECTURE_REVIEW.md` (V1) wherever the two differ. V1 stays as the audit record: the asset inventory and the archive manifest.
 **Scope of this document:** architecture only. No code, no generation, no credits spent, no website text changed.
 
